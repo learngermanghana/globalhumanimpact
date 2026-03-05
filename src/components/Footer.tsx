@@ -1,6 +1,6 @@
-﻿import Container from "./Container"
+import Container from "./Container"
 import Link from "next/link"
-import { SITE, WA_LINK } from "@/lib/site"
+import { SITE } from "@/lib/site"
 
 export default function Footer() {
   return (
@@ -24,18 +24,18 @@ export default function Footer() {
           <div>
             <div className="font-semibold">Quick Links</div>
             <div className="mt-2 grid gap-2 text-sm">
-              <Link className="text-neutral-700 hover:text-black" href="/services">
-                Services
+              <Link className="text-neutral-700 hover:text-black" href="/#programs">
+                Programs
               </Link>
-              <Link className="text-neutral-700 hover:text-black" href="/portfolio">
-                Portfolio
+              <Link className="text-neutral-700 hover:text-black" href="/#impact">
+                Impact
               </Link>
-              <Link className="text-neutral-700 hover:text-black" href="/quote">
-                Request a Quote
+              <Link className="text-neutral-700 hover:text-black" href="/#get-involved">
+                Volunteer
               </Link>
-              <a className="text-neutral-700 hover:text-black" href={WA_LINK}>
-                WhatsApp
-              </a>
+              <Link className="text-neutral-700 hover:text-black" href="/#donate">
+                Donate
+              </Link>
             </div>
           </div>
         </div>

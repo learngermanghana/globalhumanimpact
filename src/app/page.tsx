@@ -1,114 +1,202 @@
-﻿import Link from "next/link"
+import Link from "next/link"
 import Container from "@/components/Container"
 import SectionHeader from "@/components/SectionHeader"
-import { SITE, WA_PREFILL } from "@/lib/site"
 
-const quickServices = [
-  { title: "Business Cards", desc: "Clean finishing for individuals and companies." },
-  { title: "Flyers & Brochures", desc: "Promotions, adverts, church and event flyers." },
-  { title: "Banners", desc: "Indoor/outdoor banners, roll-ups, and backdrops." },
-  { title: "Stickers & Labels", desc: "Product labels, branding stickers, packaging." },
-  { title: "Posters", desc: "High-quality posters for adverts and events." },
-  { title: "Design Services", desc: "We design and print — all in one place." },
+const pillars = [
+  {
+    title: "Community Health Services",
+    desc: "Local outreach, screenings, referrals, and wellness education for underserved communities.",
+  },
+  {
+    title: "Maternal Health Advocacy",
+    desc: "Support for safe pregnancy, informed care choices, and stronger maternal care systems.",
+  },
+  {
+    title: "Cancer Awareness",
+    desc: "Prevention campaigns, early detection education, and community-led awareness drives.",
+  },
+  {
+    title: "Speech Therapy Advocacy",
+    desc: "Improving access to early intervention, speech support resources, and caregiver guidance.",
+  },
+]
+
+const impactStats = [
+  { label: "People Reached", value: "12,500+" },
+  { label: "Communities Supported", value: "48" },
+  { label: "Health Campaigns Run", value: "120" },
+  { label: "Active Partners", value: "27" },
+]
+
+const stories = [
+  {
+    title: "Maternal Care Access in peri-urban districts",
+    quote:
+      "Our education sessions helped expecting mothers identify danger signs earlier and seek timely support.",
+  },
+  {
+    title: "Speech Support for Early Learners",
+    quote:
+      "Caregivers now have practical tools at home, and children are receiving referrals faster than before.",
+  },
 ]
 
 export default function HomePage() {
-  const wa = WA_PREFILL("Hi 247 Print House, I want a quote. Please assist me.")
-
   return (
     <>
       <section className="border-b bg-white">
         <Container>
-          <div className="grid gap-10 py-14 md:grid-cols-2 md:items-center">
+          <div className="grid gap-10 py-16 md:grid-cols-2 md:items-center">
             <div className="space-y-5">
               <div className="inline-flex rounded-full border bg-white px-3 py-1 text-xs text-neutral-600">
-                {SITE.location} · {SITE.phoneDisplay}
+                Trust-first NGO for healthier communities
               </div>
 
               <h1 className="text-4xl font-semibold tracking-tight md:text-5xl">
-                {SITE.tagline}
+                Advancing community well-being through advocacy, education, and local partnerships.
               </h1>
 
               <p className="text-neutral-600">
-                Printing and designing for businesses, events, and personal branding.
-                Quick turnaround, sharp prints, and reliable support.
+                Global Human Impact Foundation helps communities thrive through community health
+                services, maternal health advocacy, cancer awareness, and speech therapy advocacy.
               </p>
 
               <div className="flex flex-wrap gap-3">
                 <Link
-                  href="/quote"
+                  href="/#donate"
                   className="rounded-xl bg-black px-5 py-3 text-sm font-medium text-white hover:opacity-90"
                 >
-                  Request a Quote
+                  Donate
                 </Link>
-
-                <a
-                  href={wa}
+                <Link
+                  href="/#get-involved"
                   className="rounded-xl border bg-white px-5 py-3 text-sm font-medium hover:bg-neutral-50"
                 >
-                  Chat on WhatsApp
-                </a>
+                  Volunteer
+                </Link>
+                <Link
+                  href="/contact"
+                  className="rounded-xl border bg-white px-5 py-3 text-sm font-medium hover:bg-neutral-50"
+                >
+                  Partner
+                </Link>
               </div>
-
-              <div className="text-sm text-neutral-500">Email: {SITE.email}</div>
             </div>
 
             <div className="rounded-3xl border bg-neutral-50 p-6">
-              <div className="grid gap-4">
-                <div className="rounded-2xl bg-white p-5 shadow-sm">
-                  <div className="text-sm font-semibold">How it works</div>
-                  <ol className="mt-3 list-decimal space-y-2 pl-5 text-sm text-neutral-600">
-                    <li>Send your details / design</li>
-                    <li>We confirm price + timeline</li>
-                    <li>We print with quality finishing</li>
-                    <li>Pickup or delivery (if available)</li>
-                  </ol>
-                </div>
-
-                <div className="rounded-2xl bg-white p-5 shadow-sm">
-                  <div className="text-sm font-semibold">Why choose us</div>
-                  <ul className="mt-3 list-disc space-y-2 pl-5 text-sm text-neutral-600">
-                    <li>Quick turnaround</li>
-                    <li>Sharp prints + clean finishing</li>
-                    <li>Affordable pricing</li>
-                    <li>Friendly support</li>
-                  </ul>
-                </div>
-              </div>
+              <h2 className="text-lg font-semibold">Mission</h2>
+              <p className="mt-2 text-sm text-neutral-700">
+                We improve community well-being by advancing maternal health, cancer awareness,
+                and speech therapy access through advocacy, education, and local partnerships.
+              </p>
+              <h3 className="mt-6 text-sm font-semibold">Vision</h3>
+              <p className="mt-2 text-sm text-neutral-700">
+                A future where every family can access essential health information, care, and support.
+              </p>
             </div>
+          </div>
+        </Container>
+      </section>
+
+      <section id="programs" className="py-12">
+        <Container>
+          <SectionHeader
+            title="Four Program Pillars"
+            subtitle="Each program is designed with measurable outcomes, local partnerships, and inclusive community participation."
+          />
+          <div className="mt-6 grid gap-4 sm:grid-cols-2">
+            {pillars.map((pillar) => (
+              <article key={pillar.title} className="rounded-2xl border bg-white p-5 shadow-sm">
+                <h3 className="font-semibold">{pillar.title}</h3>
+                <p className="mt-2 text-sm text-neutral-600">{pillar.desc}</p>
+                <Link href="/#donate" className="mt-4 inline-block text-sm font-medium underline">
+                  Support this program
+                </Link>
+              </article>
+            ))}
+          </div>
+        </Container>
+      </section>
+
+      <section id="impact" className="border-y bg-white py-12">
+        <Container>
+          <SectionHeader
+            title="Impact Highlights"
+            subtitle="Evidence-based reporting to keep supporters informed and confident."
+          />
+          <div className="mt-6 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+            {impactStats.map((stat) => (
+              <div key={stat.label} className="rounded-2xl border bg-neutral-50 p-5 text-center">
+                <div className="text-3xl font-semibold">{stat.value}</div>
+                <div className="mt-2 text-sm text-neutral-600">{stat.label}</div>
+              </div>
+            ))}
+          </div>
+        </Container>
+      </section>
+
+      <section id="about" className="py-12">
+        <Container>
+          <SectionHeader
+            title="About Global Human Impact Foundation"
+            subtitle="Human, hopeful, and evidence-based work with clear governance and transparency commitments."
+          />
+          <div className="mt-6 rounded-2xl border bg-white p-6 text-sm text-neutral-700">
+            We are a registered nonprofit focused on practical health advocacy and education. Our
+            leadership and advisory partners work with community stakeholders to deliver programs with
+            clear safeguarding standards, privacy commitments, and transparent use of funds.
           </div>
         </Container>
       </section>
 
       <section className="py-12">
         <Container>
-          <SectionHeader
-            title="Top Services"
-            subtitle="Anything concerning printing and designing — for business, marketing, and events."
-          />
-
-          <div className="mt-6 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-            {quickServices.map((s) => (
-              <div key={s.title} className="rounded-2xl border bg-white p-5 shadow-sm">
-                <div className="font-semibold">{s.title}</div>
-                <div className="mt-2 text-sm text-neutral-600">{s.desc}</div>
+          <SectionHeader title="Success Stories" subtitle="Real outcomes from community-centered programs." />
+          <div className="mt-6 grid gap-4 md:grid-cols-2">
+            {stories.map((story) => (
+              <div key={story.title} className="rounded-2xl border bg-white p-5 shadow-sm">
+                <h3 className="font-semibold">{story.title}</h3>
+                <p className="mt-2 text-sm text-neutral-600">“{story.quote}”</p>
               </div>
             ))}
           </div>
+        </Container>
+      </section>
 
-          <div className="mt-8 flex flex-wrap gap-3">
-            <Link
-              href="/services"
-              className="rounded-xl border bg-white px-5 py-3 text-sm font-medium hover:bg-neutral-50"
-            >
-              View All Services
+      <section id="get-involved" className="border-y bg-white py-12">
+        <Container>
+          <SectionHeader
+            title="Get Involved"
+            subtitle="Volunteer, partner, or join campaigns that expand access to better health outcomes."
+          />
+          <div className="mt-6 flex flex-wrap gap-3">
+            <Link href="/contact" className="rounded-xl bg-black px-5 py-3 text-sm font-medium text-white">
+              Volunteer Sign-up
             </Link>
-            <Link
-              href="/portfolio"
-              className="rounded-xl border bg-white px-5 py-3 text-sm font-medium hover:bg-neutral-50"
-            >
-              See Portfolio
+            <Link href="/contact" className="rounded-xl border bg-white px-5 py-3 text-sm font-medium">
+              Partner with Us
             </Link>
+            <Link href="/contact" className="rounded-xl border bg-white px-5 py-3 text-sm font-medium">
+              Join a Campaign
+            </Link>
+          </div>
+        </Container>
+      </section>
+
+      <section id="donate" className="py-12">
+        <Container>
+          <div className="rounded-3xl border bg-black p-8 text-white">
+            <h2 className="text-2xl font-semibold">Support Global Human Impact Foundation</h2>
+            <p className="mt-2 max-w-2xl text-sm text-neutral-200">
+              Choose one-time or recurring giving to support community health, maternal health,
+              cancer awareness, and speech therapy advocacy. We share impact updates and transparency
+              snapshots to show how funds are used.
+            </p>
+            <div className="mt-5">
+              <Link href="/contact" className="rounded-xl bg-white px-5 py-3 text-sm font-medium text-black">
+                Donate Now
+              </Link>
+            </div>
           </div>
         </Container>
       </section>

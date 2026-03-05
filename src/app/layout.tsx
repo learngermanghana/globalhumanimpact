@@ -1,4 +1,4 @@
-﻿import type { Metadata } from "next"
+import type { Metadata } from "next"
 import "./globals.css"
 import Navbar from "@/components/Navbar"
 import Footer from "@/components/Footer"
@@ -7,7 +7,7 @@ import { SITE } from "@/lib/site"
 
 export const metadata: Metadata = {
   title: {
-    default: SITE.name,
+    default: "Global Human Impact Foundation | Community Health, Maternal Health & Cancer Awareness",
     template: `%s · ${SITE.name}`,
   },
   description: SITE.description,

@@ -1,15 +1,15 @@
-﻿export const SITE = {
-  name: "247 Print House",
-  tagline: "Fast, Quality Printing — Ready When You Need It.",
+export const SITE = {
+  name: "Global Human Impact Foundation",
+  tagline: "Healthier Communities, Stronger Futures.",
   description:
-    "247 Print House in Awoshie (Water Works) provides professional printing and design services for businesses, events, and personal branding.",
+    "Global Human Impact Foundation advances community health, maternal health advocacy, cancer awareness, and speech therapy access through education, advocacy, and local partnerships.",
   phoneDisplay: "+233 55 821 3040",
   whatsappE164: "233558213040",
-  email: "princeproduction247@gmail.com",
-  location: "Awoshie, Water Works",
+  email: "hello@globalhumanimpact.org",
+  location: "Accra, Ghana",
   socials: {
-    instagram: "https://instagram.com/your_instagram_placeholder",
-    facebook: "https://facebook.com/your_facebook_placeholder",
+    instagram: "https://instagram.com/globalhumanimpact",
+    facebook: "https://facebook.com/globalhumanimpact",
   },
 }
 
