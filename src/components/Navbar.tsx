@@ -1,4 +1,4 @@
-﻿"use client"
+"use client"
 
 import Link from "next/link"
 import { useState } from "react"
@@ -7,10 +7,11 @@ import { SITE, WA_LINK } from "@/lib/site"
 
 const nav = [
   { href: "/", label: "Home" },
-  { href: "/services", label: "Services" },
-  { href: "/portfolio", label: "Portfolio" },
-  { href: "/quote", label: "Request a Quote" },
-  { href: "/about", label: "About" },
+  { href: "/#about", label: "About" },
+  { href: "/#programs", label: "Programs" },
+  { href: "/#impact", label: "Impact" },
+  { href: "/#get-involved", label: "Get Involved" },
+  { href: "/#donate", label: "Donate" },
   { href: "/contact", label: "Contact" },
 ]
 
@@ -44,8 +45,8 @@ export default function Navbar() {
       <Container>
         <div className="flex h-16 items-center justify-between gap-4">
           <Link href="/" className="flex items-center gap-2" onClick={() => setOpen(false)}>
-            <div className="grid h-9 w-9 place-items-center rounded-xl bg-black text-white font-bold">
-              247
+            <div className="grid h-9 w-9 place-items-center rounded-xl bg-black text-xs font-bold text-white">
+              GHI
             </div>
             <div className="leading-tight">
               <div className="font-semibold">{SITE.name}</div>
@@ -53,14 +54,9 @@ export default function Navbar() {
             </div>
           </Link>
 
-          {/* Desktop nav */}
           <nav className="hidden items-center gap-6 md:flex">
             {nav.map((i) => (
-              <Link
-                key={i.href}
-                href={i.href}
-                className="text-sm text-neutral-700 hover:text-black"
-              >
+              <Link key={i.href} href={i.href} className="text-sm text-neutral-700 hover:text-black">
                 {i.label}
               </Link>
             ))}
@@ -68,13 +64,12 @@ export default function Navbar() {
 
           <div className="flex items-center gap-2">
             <Link
-              href="/quote"
+              href="/#donate"
               className="hidden rounded-xl bg-black px-4 py-2 text-sm font-medium text-white hover:opacity-90 md:inline-flex"
             >
-              Get a Quote
+              Donate
             </Link>
 
-            {/* Mobile hamburger */}
             <button
               type="button"
               className="inline-flex items-center justify-center rounded-xl border bg-white p-2 hover:bg-neutral-50 md:hidden"
@@ -88,13 +83,9 @@ export default function Navbar() {
         </div>
       </Container>
 
-      {/* Mobile menu overlay */}
       {open ? (
         <div className="md:hidden">
-          <div
-            className="fixed inset-0 z-40 bg-black/30"
-            onClick={() => setOpen(false)}
-          />
+          <div className="fixed inset-0 z-40 bg-black/30" onClick={() => setOpen(false)} />
           <div className="fixed left-0 right-0 top-16 z-50 border-b bg-white shadow-lg">
             <Container>
               <div className="py-4">
@@ -113,11 +104,11 @@ export default function Navbar() {
 
                 <div className="mt-4 grid gap-2">
                   <Link
-                    href="/quote"
+                    href="/#donate"
                     onClick={() => setOpen(false)}
                     className="inline-flex items-center justify-center rounded-xl bg-black px-4 py-3 text-sm font-medium text-white hover:opacity-90"
                   >
-                    Request a Quote
+                    Donate Now
                   </Link>
                   <a
                     href={WA_LINK}

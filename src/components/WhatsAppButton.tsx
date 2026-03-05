@@ -1,10 +1,10 @@
-﻿"use client"
+"use client"
 
 import { WA_PREFILL } from "@/lib/site"
 
 export default function WhatsAppButton() {
   const href = WA_PREFILL(
-    "Hi 247 Print House, I need a quote for printing. Here are my details:"
+    "Hello Global Human Impact Foundation, I would like to support or partner with your programs."
   )
 
   return (
@@ -14,7 +14,7 @@ export default function WhatsAppButton() {
       aria-label="Chat on WhatsApp"
     >
       <span className="inline-block h-2 w-2 rounded-full bg-white" />
-      WhatsApp Quote
+      WhatsApp Support
     </a>
   )
 }
