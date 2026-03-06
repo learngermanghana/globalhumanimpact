@@ -37,7 +37,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className="bg-neutral-50 text-neutral-900">
+      <body className="app">
         <Navbar />
         <main className="min-h-[70vh]">{children}</main>
         <Footer />

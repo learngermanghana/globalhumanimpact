@@ -46,7 +46,7 @@ export default function HomePage() {
     <>
       <section className="border-b bg-white">
         <Container>
-          <div className="grid gap-10 py-16 md:grid-cols-2 md:items-center">
+          <div className="hero__inner grid gap-10 p-8 py-12 md:grid-cols-2 md:items-center md:p-10">
             <div className="space-y-5">
               <div className="inline-flex rounded-full border bg-white px-3 py-1 text-xs text-neutral-600">
                 Trust-first NGO for healthier communities
@@ -94,6 +94,39 @@ export default function HomePage() {
                 A future where every family can access essential health information, care, and support.
               </p>
             </div>
+          </div>
+        </Container>
+      </section>
+
+
+      <section className="border-t bg-white py-12">
+        <Container>
+          <SectionHeader
+            title="What template was used?"
+            subtitle="This project runs on a Next.js app, and the visual layout is defined by local app components and CSS."
+          />
+          <div className="mt-6 space-y-4 rounded-2xl border bg-white p-6 text-sm text-neutral-700">
+            <p>
+              From the current package setup and scripts, this app is built with Next.js + React, not a
+              Vercel visual template. Vercel handles hosting, while the UI comes from the code in this repository.
+            </p>
+            <ul className="list-disc space-y-2 pl-5">
+              <li>
+                The page shell and routing entry are in <code>src/app/layout.tsx</code> and page files under
+                <code> src/app/*</code>.
+              </li>
+              <li>
+                Shared structure is provided by reusable components like Navbar, Footer, and Container.
+              </li>
+              <li>
+                The theme and layout behavior are set in <code>src/app/globals.css</code>.
+              </li>
+            </ul>
+            <p>
+              To reproduce this layout in another app, copy the global styles plus shared layout components,
+              then keep class names like <code>.app</code>, <code>.nav</code>, <code>.container</code>, and
+              <code> .hero__inner</code> aligned.
+            </p>
           </div>
         </Container>
       </section>
