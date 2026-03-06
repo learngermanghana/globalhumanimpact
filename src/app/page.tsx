@@ -1,4 +1,5 @@
 import Link from "next/link"
+import Image from "next/image"
 import Container from "@/components/Container"
 import SectionHeader from "@/components/SectionHeader"
 
@@ -87,16 +88,26 @@ export default function HomePage() {
               </div>
             </div>
 
-            <div className="rounded-3xl border bg-neutral-50 p-6">
-              <h2 className="text-lg font-semibold">Mission</h2>
-              <p className="mt-2 text-sm text-neutral-700">
-                We improve community well-being by advancing maternal health, cancer awareness,
-                and speech therapy access through advocacy, education, and local partnerships.
-              </p>
-              <h3 className="mt-6 text-sm font-semibold">Vision</h3>
-              <p className="mt-2 text-sm text-neutral-700">
-                A future where every family can access essential health information, care, and support.
-              </p>
+            <div className="space-y-4">
+              <Image
+                src="/photos/global.jpeg"
+                alt="Global Human Impact community outreach"
+                width={900}
+                height={600}
+                priority
+                className="h-64 w-full rounded-3xl border object-cover"
+              />
+              <div className="rounded-3xl border bg-neutral-50 p-6">
+                <h2 className="text-lg font-semibold">Mission</h2>
+                <p className="mt-2 text-sm text-neutral-700">
+                  We improve community well-being by advancing maternal health, cancer awareness,
+                  and speech therapy access through advocacy, education, and local partnerships.
+                </p>
+                <h3 className="mt-6 text-sm font-semibold">Vision</h3>
+                <p className="mt-2 text-sm text-neutral-700">
+                  A future where every family can access essential health information, care, and support.
+                </p>
+              </div>
             </div>
           </div>
         </Container>
