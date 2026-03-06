@@ -19,6 +19,10 @@ const pillars = [
     title: "Speech Therapy Advocacy",
     desc: "Improving access to early intervention, speech support resources, and caregiver guidance.",
   },
+  {
+    title: "Adolescent Reproductive Health Rights",
+    desc: "Promoting adolescent reproductive health rights through education, advocacy, and safe access to support services.",
+  },
 ]
 
 const impactStats = [
@@ -64,19 +68,19 @@ export default function HomePage() {
               <div className="flex flex-wrap gap-3">
                 <Link
                   href="/#donate"
-                  className="rounded-xl bg-black px-5 py-3 text-sm font-medium text-white hover:opacity-90"
+                  className="rounded-xl bg-[var(--accent)] px-5 py-3 text-sm font-medium text-white hover:opacity-90"
                 >
                   Donate
                 </Link>
                 <Link
                   href="/#get-involved"
-                  className="rounded-xl border bg-white px-5 py-3 text-sm font-medium hover:bg-neutral-50"
+                  className="rounded-xl border bg-white px-5 py-3 text-sm font-medium hover:bg-[color:var(--muted-surface)]"
                 >
                   Volunteer
                 </Link>
                 <Link
                   href="/contact"
-                  className="rounded-xl border bg-white px-5 py-3 text-sm font-medium hover:bg-neutral-50"
+                  className="rounded-xl border bg-white px-5 py-3 text-sm font-medium hover:bg-[color:var(--muted-surface)]"
                 >
                   Partner
                 </Link>
@@ -98,43 +102,10 @@ export default function HomePage() {
         </Container>
       </section>
 
-
-      <section className="border-t bg-white py-12">
-        <Container>
-          <SectionHeader
-            title="What template was used?"
-            subtitle="This project runs on a Next.js app, and the visual layout is defined by local app components and CSS."
-          />
-          <div className="mt-6 space-y-4 rounded-2xl border bg-white p-6 text-sm text-neutral-700">
-            <p>
-              From the current package setup and scripts, this app is built with Next.js + React, not a
-              Vercel visual template. Vercel handles hosting, while the UI comes from the code in this repository.
-            </p>
-            <ul className="list-disc space-y-2 pl-5">
-              <li>
-                The page shell and routing entry are in <code>src/app/layout.tsx</code> and page files under
-                <code> src/app/*</code>.
-              </li>
-              <li>
-                Shared structure is provided by reusable components like Navbar, Footer, and Container.
-              </li>
-              <li>
-                The theme and layout behavior are set in <code>src/app/globals.css</code>.
-              </li>
-            </ul>
-            <p>
-              To reproduce this layout in another app, copy the global styles plus shared layout components,
-              then keep class names like <code>.app</code>, <code>.nav</code>, <code>.container</code>, and
-              <code> .hero__inner</code> aligned.
-            </p>
-          </div>
-        </Container>
-      </section>
-
       <section id="programs" className="py-12">
         <Container>
           <SectionHeader
-            title="Four Program Pillars"
+            title="Program Pillars"
             subtitle="Each program is designed with measurable outcomes, local partnerships, and inclusive community participation."
           />
           <div className="mt-6 grid gap-4 sm:grid-cols-2">
@@ -142,7 +113,7 @@ export default function HomePage() {
               <article key={pillar.title} className="rounded-2xl border bg-white p-5 shadow-sm">
                 <h3 className="font-semibold">{pillar.title}</h3>
                 <p className="mt-2 text-sm text-neutral-600">{pillar.desc}</p>
-                <Link href="/#donate" className="mt-4 inline-block text-sm font-medium underline">
+                <Link href="/#donate" className="mt-4 inline-block text-sm font-medium underline decoration-[var(--secondary)]">
                   Support this program
                 </Link>
               </article>
@@ -203,13 +174,13 @@ export default function HomePage() {
             subtitle="Volunteer, partner, or join campaigns that expand access to better health outcomes."
           />
           <div className="mt-6 flex flex-wrap gap-3">
-            <Link href="/contact" className="rounded-xl bg-black px-5 py-3 text-sm font-medium text-white">
+            <Link href="/contact" className="rounded-xl bg-[var(--accent)] px-5 py-3 text-sm font-medium text-white">
               Volunteer Sign-up
             </Link>
-            <Link href="/contact" className="rounded-xl border bg-white px-5 py-3 text-sm font-medium">
+            <Link href="/contact" className="rounded-xl border bg-white px-5 py-3 text-sm font-medium hover:bg-[color:var(--muted-surface)]">
               Partner with Us
             </Link>
-            <Link href="/contact" className="rounded-xl border bg-white px-5 py-3 text-sm font-medium">
+            <Link href="/contact" className="rounded-xl border bg-white px-5 py-3 text-sm font-medium hover:bg-[color:var(--muted-surface)]">
               Join a Campaign
             </Link>
           </div>
@@ -218,15 +189,15 @@ export default function HomePage() {
 
       <section id="donate" className="py-12">
         <Container>
-          <div className="rounded-3xl border bg-black p-8 text-white">
+          <div className="rounded-3xl border bg-[var(--accent)] p-8 text-white">
             <h2 className="text-2xl font-semibold">Support Global Human Impact Foundation</h2>
-            <p className="mt-2 max-w-2xl text-sm text-neutral-200">
+            <p className="mt-2 max-w-2xl text-sm text-[color:var(--accent-foreground)]">
               Choose one-time or recurring giving to support community health, maternal health,
               cancer awareness, and speech therapy advocacy. We share impact updates and transparency
               snapshots to show how funds are used.
             </p>
             <div className="mt-5">
-              <Link href="/contact" className="rounded-xl bg-white px-5 py-3 text-sm font-medium text-black">
+              <Link href="/contact" className="rounded-xl bg-white px-5 py-3 text-sm font-medium text-[var(--accent)]">
                 Donate Now
               </Link>
             </div>
