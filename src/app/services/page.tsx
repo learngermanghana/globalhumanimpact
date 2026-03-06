@@ -1,45 +1,41 @@
-﻿import Container from "@/components/Container"
+import Container from "@/components/Container"
 import SectionHeader from "@/components/SectionHeader"
 
 const sections = [
   {
-    title: "Design Services",
+    title: "Community Health Outreach",
     items: [
-      "Logo design & brand identity",
-      "Flyer & poster design",
-      "Business card design",
-      "Social media designs",
-      "Invitation & programme design",
-      "Banner/backdrop design",
+      "Mobile education clinics and neighborhood outreach sessions",
+      "Preventive health screening and referral support",
+      "Family wellness education in schools and churches",
+      "Local health worker training support",
     ],
   },
   {
-    title: "Printing (Small & Office)",
+    title: "Maternal Health Advocacy",
     items: [
-      "Business cards",
-      "Flyers & brochures",
-      "Letterheads & envelopes",
-      "Receipts / invoice books",
-      "ID cards",
+      "Pregnancy danger-sign awareness workshops",
+      "Safe birth planning and antenatal support resources",
+      "Caregiver and family engagement programs",
+      "Maternal care rights and policy advocacy",
     ],
   },
   {
-    title: "Large Format Printing",
+    title: "Cancer Awareness Programs",
     items: [
-      "Indoor/outdoor banners",
-      "Roll-up banners",
-      "Posters",
-      "Backdrops",
-      "Signage (basic print)",
+      "Community campaigns for early detection awareness",
+      "Breast and cervical health education events",
+      "Myth-busting and stigma reduction materials",
+      "Referral navigation for follow-up care",
     ],
   },
   {
-    title: "Branding & Custom Items",
+    title: "Speech Therapy Advocacy",
     items: [
-      "Stickers & labels",
-      "Product branding / packaging labels",
-      "Branded T-shirts & apparel (if needed)",
-      "Branded mugs/caps (if needed)",
+      "Parent coaching for early speech intervention",
+      "School awareness sessions for speech and language delays",
+      "Referrals to speech and language professionals",
+      "Accessibility advocacy for early childhood services",
     ],
   },
 ]
@@ -49,8 +45,8 @@ export default function ServicesPage() {
     <section className="py-12">
       <Container>
         <SectionHeader
-          title="Services"
-          subtitle="From design-ready files to full support — we design and print with quality finishing."
+          title="Programs & Services"
+          subtitle="Our programs are designed to improve access to health knowledge, support, and referrals where they are needed most."
         />
 
         <div className="mt-8 grid gap-4 md:grid-cols-2">

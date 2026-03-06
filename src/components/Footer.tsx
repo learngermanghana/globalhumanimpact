@@ -24,17 +24,17 @@ export default function Footer() {
           <div>
             <div className="font-semibold">Quick Links</div>
             <div className="mt-2 grid gap-2 text-sm">
-              <Link className="text-neutral-700 hover:text-black" href="/#programs">
+              <Link className="text-neutral-700 hover:text-black" href="/about">
+                About
+              </Link>
+              <Link className="text-neutral-700 hover:text-black" href="/services">
                 Programs
               </Link>
-              <Link className="text-neutral-700 hover:text-black" href="/#impact">
-                Impact
+              <Link className="text-neutral-700 hover:text-black" href="/portfolio">
+                Impact Stories
               </Link>
-              <Link className="text-neutral-700 hover:text-black" href="/#get-involved">
-                Volunteer
-              </Link>
-              <Link className="text-neutral-700 hover:text-black" href="/#donate">
-                Donate
+              <Link className="text-neutral-700 hover:text-black" href="/quote">
+                Request Support
               </Link>
             </div>
           </div>
