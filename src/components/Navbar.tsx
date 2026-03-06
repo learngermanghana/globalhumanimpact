@@ -18,17 +18,17 @@ function IconHamburger({ open }: { open: boolean }) {
   return (
     <div className="relative h-5 w-6">
       <span
-        className={`absolute left-0 top-0 h-0.5 w-6 rounded bg-black transition-all ${
+        className={`absolute left-0 top-0 h-0.5 w-6 rounded bg-[var(--accent)] transition-all ${
           open ? "top-2 rotate-45" : ""
         }`}
       />
       <span
-        className={`absolute left-0 top-2 h-0.5 w-6 rounded bg-black transition-all ${
+        className={`absolute left-0 top-2 h-0.5 w-6 rounded bg-[var(--accent)] transition-all ${
           open ? "opacity-0" : "opacity-100"
         }`}
       />
       <span
-        className={`absolute left-0 top-4 h-0.5 w-6 rounded bg-black transition-all ${
+        className={`absolute left-0 top-4 h-0.5 w-6 rounded bg-[var(--accent)] transition-all ${
           open ? "top-2 -rotate-45" : ""
         }`}
       />
@@ -48,7 +48,7 @@ export default function Navbar() {
             className="flex min-w-0 items-center gap-2"
             onClick={() => setOpen(false)}
           >
-            <div className="grid h-9 w-9 place-items-center rounded-xl bg-black text-xs font-bold text-white">
+            <div className="grid h-9 w-9 place-items-center rounded-xl bg-[var(--accent)] text-xs font-bold text-white">
               GHI
             </div>
             <div className="min-w-0 leading-tight">
@@ -59,7 +59,7 @@ export default function Navbar() {
 
           <nav className="hidden items-center gap-6 md:flex">
             {nav.map((i) => (
-              <Link key={i.href} href={i.href} className="text-sm text-neutral-700 hover:text-black">
+              <Link key={i.href} href={i.href} className="text-sm text-neutral-700 hover:text-[var(--accent)]">
                 {i.label}
               </Link>
             ))}
@@ -68,7 +68,7 @@ export default function Navbar() {
           <div className="shrink-0 flex items-center gap-2">
             <Link
               href="/#donate"
-              className="hidden rounded-xl bg-black px-4 py-2 text-sm font-medium text-white hover:opacity-90 md:inline-flex"
+              className="hidden rounded-xl bg-[var(--accent)] px-4 py-2 text-sm font-medium text-white hover:opacity-90 md:inline-flex"
             >
               Donate
             </Link>
@@ -109,7 +109,7 @@ export default function Navbar() {
                   <Link
                     href="/#donate"
                     onClick={() => setOpen(false)}
-                    className="inline-flex items-center justify-center rounded-xl bg-black px-4 py-3 text-sm font-medium text-white hover:opacity-90"
+                    className="inline-flex items-center justify-center rounded-xl bg-[var(--accent)] px-4 py-3 text-sm font-medium text-white hover:opacity-90"
                   >
                     Donate Now
                   </Link>
