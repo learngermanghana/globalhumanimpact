@@ -5,8 +5,8 @@ export const SITE = {
   description:
     "Global Human Impact Foundation advances community health, maternal health advocacy, cancer awareness, and speech therapy access through education, advocacy, and local partnerships.",
   siteUrl: "https://globalhumanimpact.org",
-  phoneDisplay: "+233 55 821 3040",
-  whatsappE164: "233558213040",
+  phoneDisplay: "+44 7305 089556",
+  whatsappE164: "447305089556",
   email: "hello@globalhumanimpact.org",
   location: "Accra, Ghana",
   mapEmbedUrl:
