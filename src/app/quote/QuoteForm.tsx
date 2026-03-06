@@ -1,4 +1,4 @@
-﻿"use client"
+"use client"
 
 import { useState } from "react"
 import { SITE, WA_PREFILL } from "@/lib/site"
@@ -11,11 +11,11 @@ export default function QuoteForm() {
 
   async function onSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault()
-    setError("")
     setStatus("sending")
+    setError("")
 
-    const form = new FormData(e.currentTarget)
-    const payload = Object.fromEntries(form.entries())
+    const form = e.currentTarget
+    const payload = Object.fromEntries(new FormData(form).entries())
 
     try {
       const res = await fetch("/api/quote", {
@@ -26,35 +26,33 @@ export default function QuoteForm() {
 
       if (!res.ok) {
         const data = await res.json().catch(() => ({}))
-        throw new Error(data?.message || "Failed to send quote request.")
+        throw new Error(data?.message || "Failed to send support request.")
       }
 
       setStatus("sent")
-      ;(e.target as HTMLFormElement).reset()
-    } catch (err: any) {
+      form.reset()
+    } catch (err: unknown) {
       setStatus("error")
-      setError(err?.message || "Something went wrong.")
+      const message = err instanceof Error ? err.message : "Something went wrong."
+      setError(message)
     }
   }
 
   const wa = WA_PREFILL(
-    "Hi 247 Print House, I need a quote. Service: ____ Quantity: ____ Size: ____ Notes: ____"
+    "Hello Global Human Impact Foundation, I would like support for: ____\nCommunity/Organization: ____\nTimeline: ____\nContact: ____"
   )
 
   return (
     <div className="grid gap-6 md:grid-cols-2">
-      <form
-        onSubmit={onSubmit}
-        className="rounded-2xl border bg-white p-6 shadow-sm"
-      >
-        <div className="text-lg font-semibold">Request a Quote</div>
+      <form onSubmit={onSubmit} className="rounded-2xl border bg-white p-6 shadow-sm">
+        <div className="text-lg font-semibold">Program Support Request</div>
         <p className="mt-2 text-sm text-neutral-600">
-          Fill this form and we’ll reply quickly on WhatsApp/phone.
+          Share your need and our team will respond with next steps.
         </p>
 
         <div className="mt-5 grid gap-4">
           <div>
-            <label className="text-sm font-medium">Name</label>
+            <label className="text-sm font-medium">Full name</label>
             <input
               name="name"
               required
@@ -84,55 +82,54 @@ export default function QuoteForm() {
           </div>
 
           <div>
-            <label className="text-sm font-medium">Service</label>
+            <label className="text-sm font-medium">Request Type</label>
             <select
-              name="service"
+              name="requestType"
               required
               className="mt-2 w-full rounded-xl border px-4 py-3 text-sm outline-none focus:ring-2 focus:ring-black"
               defaultValue=""
             >
               <option value="" disabled>
-                Select a service
+                Select request type
               </option>
-              <option>Business Cards</option>
-              <option>Flyers / Brochures</option>
-              <option>Banners / Roll-ups</option>
-              <option>Stickers / Labels</option>
-              <option>Posters</option>
-              <option>Invitation / Programme</option>
-              <option>Receipt / Invoice Book</option>
-              <option>Design Only</option>
+              <option>Community Health Outreach</option>
+              <option>Maternal Health Advocacy</option>
+              <option>Cancer Awareness Campaign</option>
+              <option>Speech Therapy Advocacy</option>
+              <option>Partnership Opportunity</option>
+              <option>Volunteer Interest</option>
               <option>Other</option>
             </select>
           </div>
 
           <div className="grid gap-4 sm:grid-cols-2">
             <div>
-              <label className="text-sm font-medium">Quantity</label>
+              <label className="text-sm font-medium">Community / Organization</label>
               <input
-                name="quantity"
+                name="organization"
                 required
                 className="mt-2 w-full rounded-xl border px-4 py-3 text-sm outline-none focus:ring-2 focus:ring-black"
-                placeholder="e.g. 100, 500, 1000"
+                placeholder="Organization or community name"
               />
             </div>
             <div>
-              <label className="text-sm font-medium">Size</label>
+              <label className="text-sm font-medium">Timeline</label>
               <input
-                name="size"
+                name="timeline"
                 className="mt-2 w-full rounded-xl border px-4 py-3 text-sm outline-none focus:ring-2 focus:ring-black"
-                placeholder="e.g. A4, A3, 2x6ft"
+                placeholder="Preferred dates"
               />
             </div>
           </div>
 
           <div>
-            <label className="text-sm font-medium">Notes</label>
+            <label className="text-sm font-medium">Request details</label>
             <textarea
-              name="notes"
+              name="details"
+              required
               rows={4}
               className="mt-2 w-full rounded-xl border px-4 py-3 text-sm outline-none focus:ring-2 focus:ring-black"
-              placeholder="Finishing, color, paper type, delivery area, deadline..."
+              placeholder="Tell us about the challenge, audience, and support needed..."
             />
           </div>
 
@@ -140,7 +137,7 @@ export default function QuoteForm() {
             disabled={status === "sending"}
             className="rounded-xl bg-black px-5 py-3 text-sm font-medium text-white hover:opacity-90 disabled:opacity-60"
           >
-            {status === "sending" ? "Sending..." : "Send Quote Request"}
+            {status === "sending" ? "Sending..." : "Send Request"}
           </button>
 
           {status === "sent" ? (
@@ -159,14 +156,11 @@ export default function QuoteForm() {
 
       <div className="rounded-2xl border bg-white p-6 shadow-sm">
         <div className="text-lg font-semibold">Prefer WhatsApp?</div>
-        <p className="mt-2 text-sm text-neutral-600">
-          You can also message us directly:
-        </p>
+        <p className="mt-2 text-sm text-neutral-600">You can also message us directly:</p>
 
         <div className="mt-4 space-y-2 text-sm text-neutral-700">
           <div>
-            <span className="font-medium">WhatsApp/Phone:</span>{" "}
-            {SITE.phoneDisplay}
+            <span className="font-medium">WhatsApp/Phone:</span> {SITE.phoneDisplay}
           </div>
           <div>
             <span className="font-medium">Email:</span> {SITE.email}
@@ -184,11 +178,11 @@ export default function QuoteForm() {
         </a>
 
         <div className="mt-6 rounded-xl border bg-neutral-50 p-4 text-sm text-neutral-700">
-          <div className="font-medium">Tip for faster quotes</div>
+          <div className="font-medium">Tip for faster responses</div>
           <ul className="mt-2 list-disc space-y-1 pl-5 text-neutral-600">
-            <li>Service + size + quantity</li>
-            <li>Deadline (when you need it)</li>
-            <li>Finishing (lamination, matte/glossy, etc.)</li>
+            <li>Share your target community and expected audience size</li>
+            <li>Add preferred dates and timeline constraints</li>
+            <li>Include any active partners or local contacts</li>
           </ul>
         </div>
       </div>

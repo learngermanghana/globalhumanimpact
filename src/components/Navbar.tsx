@@ -7,11 +7,10 @@ import { SITE, WA_LINK } from "@/lib/site"
 
 const nav = [
   { href: "/", label: "Home" },
-  { href: "/#about", label: "About" },
-  { href: "/#programs", label: "Programs" },
-  { href: "/#impact", label: "Impact" },
-  { href: "/#get-involved", label: "Get Involved" },
-  { href: "/#donate", label: "Donate" },
+  { href: "/about", label: "About" },
+  { href: "/services", label: "Programs" },
+  { href: "/portfolio", label: "Impact Stories" },
+  { href: "/quote", label: "Request Support" },
   { href: "/contact", label: "Contact" },
 ]
 
@@ -49,7 +48,7 @@ export default function Navbar() {
               GHI
             </div>
             <div className="leading-tight">
-              <div className="font-semibold">{SITE.name}</div>
+              <div className="font-semibold">{SITE.shortName}</div>
               <div className="text-xs text-neutral-500">{SITE.location}</div>
             </div>
           </Link>
