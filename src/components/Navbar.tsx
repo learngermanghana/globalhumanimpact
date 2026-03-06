@@ -43,13 +43,17 @@ export default function Navbar() {
     <header className="nav sticky top-0 z-40">
       <Container>
         <div className="flex h-16 items-center justify-between gap-4">
-          <Link href="/" className="flex items-center gap-2" onClick={() => setOpen(false)}>
+          <Link
+            href="/"
+            className="flex min-w-0 items-center gap-2"
+            onClick={() => setOpen(false)}
+          >
             <div className="grid h-9 w-9 place-items-center rounded-xl bg-black text-xs font-bold text-white">
               GHI
             </div>
-            <div className="leading-tight">
-              <div className="font-semibold">{SITE.shortName}</div>
-              <div className="text-xs text-neutral-500">{SITE.location}</div>
+            <div className="min-w-0 leading-tight">
+              <div className="truncate text-sm font-semibold sm:text-base">{SITE.shortName}</div>
+              <div className="truncate text-xs text-neutral-500">{SITE.location}</div>
             </div>
           </Link>
 
@@ -61,7 +65,7 @@ export default function Navbar() {
             ))}
           </nav>
 
-          <div className="flex items-center gap-2">
+          <div className="shrink-0 flex items-center gap-2">
             <Link
               href="/#donate"
               className="hidden rounded-xl bg-black px-4 py-2 text-sm font-medium text-white hover:opacity-90 md:inline-flex"

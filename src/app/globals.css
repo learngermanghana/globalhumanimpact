@@ -33,6 +33,12 @@ body {
   font-family: var(--font-geist-sans), Arial, Helvetica, sans-serif;
 }
 
+html,
+body {
+  width: 100%;
+  overflow-x: hidden;
+}
+
 .app {
   min-height: 100vh;
   background:
@@ -60,4 +66,14 @@ body {
     color-mix(in srgb, var(--accent) 10%, var(--surface))
   );
   box-shadow: 0 20px 60px -48px color-mix(in srgb, var(--accent) 70%, #000000);
+}
+
+@media (max-width: 480px) {
+  .container {
+    width: min(1120px, calc(100% - 1rem));
+  }
+
+  .hero__inner {
+    border-radius: 1rem;
+  }
 }
