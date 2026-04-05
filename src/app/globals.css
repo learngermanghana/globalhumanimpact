@@ -1,0 +1,85 @@
+@import "tailwindcss";
+
+:root {
+  --background: #f3fbff;
+  --foreground: #0f2940;
+  --surface: #ffffff;
+  --muted-surface: #dbf5eb;
+  --accent: #0077b6;
+  --secondary: #2ca56f;
+  --highlight: #ef5da8;
+  --accent-foreground: #dff3ff;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #02101a;
+    --foreground: #e0f4ff;
+    --surface: #0b2233;
+    --muted-surface: #0e3f2a;
+    --accent: #2fa8df;
+    --secondary: #5ed19c;
+    --highlight: #ff84c1;
+    --accent-foreground: #cfefff;
+  }
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-geist-sans), Arial, Helvetica, sans-serif;
+}
+
+html,
+body {
+  width: 100%;
+  overflow-x: hidden;
+}
+
+.app {
+  min-height: 100vh;
+  background:
+    radial-gradient(circle at top right, color-mix(in srgb, var(--highlight) 16%, transparent), transparent 45%),
+    radial-gradient(circle at top left, color-mix(in srgb, var(--secondary) 12%, transparent), transparent 42%),
+    var(--background);
+}
+
+.container {
+  margin-inline: auto;
+  width: min(1120px, calc(100% - 2rem));
+}
+
+.nav {
+  border-bottom: 1px solid color-mix(in srgb, var(--accent) 24%, transparent);
+  background-color: color-mix(in srgb, var(--surface) 94%, transparent);
+  backdrop-filter: blur(6px);
+}
+
+.hero__inner {
+  border: 1px solid color-mix(in srgb, var(--accent) 18%, transparent);
+  border-radius: 1.5rem;
+  background: linear-gradient(
+    140deg,
+    color-mix(in srgb, var(--surface) 95%, transparent) 30%,
+    color-mix(in srgb, var(--accent) 8%, var(--surface)) 65%,
+    color-mix(in srgb, var(--highlight) 10%, var(--surface))
+  );
+  box-shadow: 0 20px 60px -48px color-mix(in srgb, var(--accent) 70%, #000000);
+}
+
+@media (max-width: 480px) {
+  .container {
+    width: min(1120px, calc(100% - 1rem));
+  }
+
+  .hero__inner {
+    border-radius: 1rem;
+  }
+}
